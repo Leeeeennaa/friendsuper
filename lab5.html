@@ -53,6 +53,20 @@
             output.style.backgroundColor = backColor;
             output.style.color = textColor;
         }
+        function pay() {
+            let inputC = document.getElementById('numberC');
+            let inputD = document.getElementById('numberD');
+            let inputE = document.getElementById('numberE');
+            let inputF = document.getElementById('numberF');
+            let inputG = document.getElementById('numberG');
+            let c = parseInt(inputC.value);
+            let d = parseInt(inputD.value);
+            let e = parseInt(inputE.value);
+            let f = parseInt(inputF.value);
+            let g = parseInt(inputG.value);
+            let resulting = (c*200) + (d * 100) + (e * 80) + (f * 150) + (g * 300)
+            outputTwo.innerHTML = 'Общая цена: ' + resulting
+        }
     </script>
     <style>
         .message {
@@ -69,6 +83,18 @@
             border: 1px solid;
             width: 300px;
             height: 40px;
+        }
+        .bag {
+            border: 2px solid;
+            border-radius: 8px;
+            background-color: green;
+            color: yellow;
+            border-color: yellowgreen;
+            font-size: 14px;
+            padding: 15px;
+            height: 310px;
+            width: 242px;
+            margin: 17px;
         }
     </style>
 </head>
@@ -97,6 +123,19 @@
         </div>
 
         <div id="output"></div>
+
+        <div class="bag">
+            <h1>Корзина товаров</h1> 
+            Бананы (200р/шт)<br>
+            <input type="number" value="0" id="numberC"><br>Яблоки (100р/шт)<br>
+            <input type="number" value="0" id="numberD"><br>Груши (80р/шт)<br>
+            <input type="number" value="0" id="numberE"><br>Апельсины (150р/шт)<br>
+            <input type="number" value="0" id="numberF"><br>Дыни (300р/шт)<br>
+            <input type="number" value="0" id="numberG"><br> 
+            
+            <input type="button" value="Рассчитать" onclick="pay()" style="background-color:yellowgreen; border-radius: 100px;"><br>
+            <div id="outputTwo">Общая цена: </div>
+        </div>
     </main>
 
     <footer onclick="showAuthor()">
