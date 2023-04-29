@@ -67,6 +67,46 @@
             let resulting = (c*200) + (d * 100) + (e * 80) + (f * 150) + (g * 300)
             outputTwo.innerHTML = 'Общая цена: ' + resulting
         }
+        function click1() {
+            let circles1 = document.getElementById('circles1'); 
+            circles1.style.opacity = '0';
+        }
+        function click2() {
+            let circles2 = document.getElementById('circles2'); 
+            circles2.style.opacity = '0';
+        }
+        function click3() {
+            let circles3 = document.getElementById('circles3'); 
+            circles3.style.opacity = '0';
+        }
+        function click4() {
+            let circles4 = document.getElementById('circles4'); 
+            circles4.style.opacity = '0';
+        }
+        function click5() {
+            let circles5 = document.getElementById('circles5'); 
+            circles5.style.opacity = '0';
+        }
+        function click6() {
+            let circles6 = document.getElementById('circles6'); 
+            circles6.style.opacity = '0';
+        }
+        function click7() {
+            let circles7 = document.getElementById('circles7'); 
+            circles7.style.opacity = '0';
+        }
+        function click8() {
+            let circles8 = document.getElementById('circles8'); 
+            circles8.style.opacity = '0';
+        }
+        function click9() {
+            let circles9 = document.getElementById('circles9'); 
+            circles9.style.opacity = '0';
+        }
+        function click10() {
+            let circles10 = document.getElementById('circles10'); 
+            circles10.style.opacity = '0';
+        }
     </script>
     <style>
         .message {
@@ -95,6 +135,19 @@
             height: 310px;
             width: 242px;
             margin: 17px;
+        }
+        .circles {
+            border: 2px solid;
+            border-radius: 50px;
+            float: left;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            margin: 6px;
+            font-size: 30px;
+            padding: 12px;
         }
     </style>
 </head>
@@ -135,6 +188,19 @@
             
             <input type="button" value="Рассчитать" onclick="pay()" style="background-color:yellowgreen; border-radius: 100px;"><br>
             <div id="outputTwo">Общая цена: </div>
+        </div>
+
+        <div style="padding-bottom: 120px;">
+            <div class="circles" id="circles1" style="background-color: rgb(253, 0, 0);" onclick="click1()">1</div>
+            <div class="circles" id="circles2" style="background-color: rgb(235, 128, 14);" onclick="click2()">2</div>
+            <div class="circles" id="circles3" style="background-color: rgb(223, 164, 16);" onclick="click3()">3</div>
+            <div class="circles" id="circles4" style="background-color: rgb(249, 249, 23);" onclick="click4()">4</div>
+            <div class="circles" id="circles5" style="background-color: rgb(184, 232, 27);" onclick="click5()">5</div>
+            <div class="circles" id="circles6" style="background-color: rgb(64, 255, 0);" onclick="click6()">6</div>
+            <div class="circles" id="circles7" style="background-color: rgb(19, 228, 204);" onclick="click7()">7</div>
+            <div class="circles" id="circles8" style="background-color: rgb(11, 158, 243);" onclick="click8()">8</div>
+            <div class="circles" id="circles9" style="background-color: rgb(0, 13, 255);" onclick="click9()">9</div>
+            <div class="circles" id="circles10" style="background-color: rgb(167, 50, 239);" onclick="click10()">10</div>
         </div>
     </main>
 
