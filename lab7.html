@@ -104,6 +104,47 @@
           element.innerText = `${i} * 33 = ${i * 33}`;
           multiplication.append(element);
         }
+    function stockPrice() {
+        let date = ['25.05.2023','24.05.2023','23.05.2023','22.05.2023','19.05.2023',
+                    '18.05.2023','17.05.2023','16.05.2023','15.05.2023'];
+        let price = [541.00, 545.00, 534.00, 531.40, 538.20, 512.60, 508.60, 511.00, 507.60];
+        let diff = ['-'(price[0]-price[1]).toFixed(4), (price[1]-price[2]).toFixed(4), (price[2]-price[3]).toFixed(4), (price[3]-price[4]).toFixed(4)];
+        let table = document.getElementById('stock-price');
+        
+        for (let i = 0; i < date.length; i++) {
+            let tr = document.createElement('tr');
+            let tr1 = document.createElement('td');
+            let tr2 = document.createElement('td');
+            let tr3 = document.createElement('td');
+            td1.innerHTML = date[i];
+            td2.innerHTML = price[i];
+            td3.innerHTML = diff[i];
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            table.appendChild(tr);
+        }
+
+        let sum = 0;
+        for (let i =0; i< price.length; i++) {
+            sum = sum + price[i];
+        }
+        let average = sum / price.length;
+        document.getElementById('average-price').innerHTML = 'Среднее значение' + average;
+
+        let max = 0;
+        let min = price[0];
+        for (let i = 0; i < price.length; i++) {
+            if (max<price[i]) {
+                max = price[i];
+            }
+            else if (min>price[i]) {
+                min = price[i];
+                }
+        }
+        document.getElementById('min'.innerHTML = 'Минимальное значение' + min);
+        document.getElementById('max'.innerHTML = 'Минимальное значение' + max);
+    }
       }
       document.getElementById("table").onclick = table;
 </script>
@@ -131,6 +172,12 @@
  
         <button id="table" onclick="table()">Таблица умножения на 33</button>
         <div style="background-color: rgba(207, 150, 141, 0.462); width: 150px; text-align: center;" id="multiplication"></div>
+
+        <button onclick="stockPrice()">VK Group</button>
+        <table border="1" id="stock-price"></table>
+        <div id="average-price"></div>
+        <div id="min"></div>
+        <div id="max"></div>
     </main>
  
     <footer>
