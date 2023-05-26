@@ -1,59 +1,140 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тарасова Елена Дмитриевна. Лабораторная работа 7</title>
-    <link rel="stylesheet" href="main.css"> 
-    <script>
-        function addBlocks () {
-            let blocks = document.getElementById('blocks');
-            for (let i = 0; i<10; i++) {
-                let block = document.createElement('div');
-                block.innerHTML = 'Блок №' + (i+1) + ': ' + (2 * i**2);
-
-                blocks.appendChild(block);
-            }
-            
-        function showExchange() {
-            let exchange = [70.5174, 70.1217, 70.0414, 70.3847, 70.5991,
-                            70.8924, 71.5763, 72.8949, 72.7923, 73.6707];
-            let table = document.getElementById('dollar-exchange');
-            for(let i = 0; i < exchange.length; i++) {
-                let tr = document.createElement('tr');
-                let td = document.createElement('td');
-                td.innerHTML = exchange[i];
-                tr.appendChild(td);
-                table.appendChild(tr);
-            }
-            let sum = 0;
-            for(let i = 0; i < exchange.length; i++) {
-                sum = sum + exchange[i];
-            }
-            let average = sum / exchange.length;
-            document.getElementById('detail').innerHTML = 'Среднее значение: ' + average;
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+ <meta charset="UTF-8"> 
+ <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <title>Тарасова Елена Дмитриевна. Лабораторная 7</title> 
+ <link rel="stylesheet" href="main.css"> 
+<style> 
+ #blocks { 
+        width: 150px;
     }
+    #transparent_blocks {
+        width: 150px;
+    }
+    .circle {
+        width: 64px;
+        height: 64px;
+        display: flex;
+        border-radius: 50%;
+        background-color: gray;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        margin: 10px;
+    }
+    .circle:nth-child(even) {
+        background-color: green;
+    }
+    .circle:nth-child(odd) {
+        background-color: red;
+    }
+    #table {
+        background-color: rgb(203, 176, 187);
+        margin: 20px auto;
+    }
+</style>
+ 
+<script>
+    function addBlocks() {
+        let blocks = document.getElementById('blocks');
+        for(let i = 0; i < 10; i++) {
+            let block = document.createElement('div');
+            block.innerHTML = 'Блок №' + (i+1);
+ 
+            blocks.appendChild(block);
+            block.style.backgroundColor = 'brown';
+            block.style.color = 'white';
+            block.style.margin = '20px';
         }
-    </script>
+    }
+    function showExchange() {
+        let exchange = [70.5174, 70.1217, 70.0414, 70.3847, 70.5991,
+                        70.8924, 71.5763, 72.8949, 72.7923, 73.6707];
+        let table = document.getElementById('dollar-exchange');
+        for(let i = 0; i < exchange.length; i++) {
+            let tr = document.createElement('tr');
+            let td = document.createElement('td');
+            td.innerHTML = exchange[i];
+            tr.appendChild(td);
+            table.appendChild(tr);
+        }
+        let sum = 0;
+        for(let i = 0; i < exchange.length; i++) {
+            sum = sum + exchange[i];
+        }
+        let average = sum / exchange.length;
+        document.getElementById('detail').innerHTML = 'Среднее значение: ' + average;
+    }
+    function addTransparentBlocks() {      
+        let transparent_blocks = document.getElementById('transparent_blocks');
+        for(let i = 0; i < 10; i++) {
+            let blocks = document.createElement('div');
+            blocks.innerHTML = 'Я номер ' + (i+1);
+ 
+            transparent_blocks.appendChild(blocks);
+            blocks.style.backgroundColor = 'brown';
+            blocks.style.color = 'white';
+            blocks.style.margin = '15px'; 
+ 
+            let percent = i*10;
+            blocks.style.opacity = percent + '%';
+        }
+    }
+    function circles() {
+        let count = Number(document.getElementById("count").value);
+        let circles = document.getElementById("circles");
+        circles.innerHTML = "";
+        if (!count && count === 0) return alert("Укажите число кругов");
+        for (let i = count; i > 0; i--) {
+            let circle = document.createElement("div");
+            circle.classList.add("circle");
+            circle.innerText = i;
+            circles.append(circle);
+        }
+    }
+    document.getElementById("circle").onclick = circles;
+ 
+    function table() {
+        let multiplication = document.getElementById("multiplication");
+        for(let i = 13; i <= 33; i++) {
+          let element = document.createElement("p");
+          element.innerText = `${i} * 33 = ${i * 33}`;
+          multiplication.append(element);
+        }
+      }
+      document.getElementById("table").onclick = table;
+</script>
+ 
 </head>
 <body>
     <header>
-        НГТУ, ФБ, Лабораторная работа 7
+        НГТУ, ФБ, Лабораторная работа 
     </header>
-
+ 
     <main>
-        <button onclick="addBlocks()">Создать блоки</button>
+        <button  onclick="addBlocks()">Создать блоки</button>
         <div id="blocks"></div>
-
+ 
         <button onclick="showExchange()">Курс доллара</button>
         <table border="1" id="dollar-exchange"></table>
         <div id="detail"></div>
-
+ 
+        <button onclick="addTransparentBlocks()">Создать полупрозрачные блоки</button>
+        <div id="transparent_blocks"></div>
+ 
+        <input type="text" value="5" placeholder="Введите число кругов" id="count"/>
+        <button id="circle" onclick="circles()">Красное / Зелёное</button>
+        <div id="circles"></div>
+ 
+        <button id="table" onclick="table()">Таблица умножения на 33</button>
+        <div style="background-color: rgba(207, 150, 141, 0.462); width: 150px; text-align: center;" id="multiplication"></div>
     </main>
-
+ 
     <footer>
-        &copy; Тарасова Елена, ФБИ-12, 2 курс, 2023
+        &copy; Тарасова Елена, ФБИ-12, 2 курс, 2023 
     </footer>
 </body>
 </html>
