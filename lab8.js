@@ -24,3 +24,21 @@ function showDate() {
     out5.innerHTML = today.toLocaleString('zh-CN');
 }
 
+function showDaysCount() {
+    let today = new Date();
+    let inputDate = document.querySelector('input[type=date]');
+    let birthday = new Date(inputDate.value);
+    let daysCount = (today - birthday)/1000/60/60/24 ;
+    daysCount = Math.floor(daysCount);
+    document.getElementById('den').innerHTML = 'Количество дней с даты рождения: ' + daysCount;
+    
+}
+
+function Del() {
+    let screens = document.getElementsByClassName('div');
+    screens[0].style.display = 'none';
+    screens[1].style.display = 'none';
+    document.getElementsByClassName('d')[0].value="";
+}
+
+

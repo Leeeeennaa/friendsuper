@@ -10,7 +10,8 @@
 </head>
 <body onload="showDate()">
     <header>
-        НГТУ, ФБ, Лабораторная работа 
+        НГТУ, ФБ, Лабораторная работа 8
+        <div id="time">00:00:00</div>
     </header>
 
     <main>
@@ -20,6 +21,20 @@
         <div id="current-date3"></div>
         <div id="current-date4"></div>
         <div id="current-date5"></div>
+
+        <div class="div">
+            <label>Дата рождения: <input type="date" class="d"></label>
+        </div>
+
+        <div class="div">
+            <button onclick="showDaysCount()">Показать число дней</button>
+        </div>
+
+        <div id="den"></div>
+
+        <div>
+            <button onclick="Del()">Убрать данные</button>
+        </div>
     </main>
 
     <footer>
